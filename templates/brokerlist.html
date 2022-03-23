@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broker</title>
+
+    <style>
+        #broker {
+          font-family: Arial, Helvetica, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        #broker td, #broker th {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        
+        #broker tr:nth-child(even){background-color: #f2f2f2;}
+        
+        #broker tr:hover {background-color: #ddd;}
+        
+        #broker th {
+          padding-top: 12px;
+          padding-bottom: 12px;
+          text-align: left;
+          background-color: #04AA6D;
+          color: white;
+        }
+        </style>
+
+</head>
+<body>
+    <h3>Broker List</h3>
+
+    <!--Message control-->
+    <div>
+        {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == "info" %}
+                        <div class="alert alert-danger">{{ message }}</div>
+                    {% else %}
+                        <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+                    {% endif %}
+                {% endfor %} 
+        {% endif %}
+    </div>
+
+    <br>
+
+    <table id="broker">
+        <tr>
+            <th>Id</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Error</th>
+            <th>lat</th>
+            <th>lon</th>
+            <th>Created at</th>
+        </tr>
+
+        <!-- Device data control -->
+        {% if broker_list_dict.status_code == 404 %}
+            
+        {% else %}   
+            
+            <!-- List device serial no -->
+            {% for broker in broker_list_dict.results %}
+
+                <tr>
+                    <td>{{broker.id}}</td>
+                    <td>{{broker.temperature}}</td>
+                    <td>{{broker.humidity}}</td>
+                    <td>{{broker.error}}</td>
+                    <td>{{broker.lat}}</td>
+                    <td>{{broker.lon}}</td>
+                    <td>{{broker.created_at}}</td>
+                </tr>
+                
+            {% endfor %}
+
+             
+        {% endif %}
+            
+        
+    </table>
+
+    <br>
+
+    <!-- Device data control -->
+    {% if broker_list_dict.status_code == 404 %}
+            
+    {% else %} 
+
+        <!-- Pagination Control -->
+        {% if broker_list_dict.next %}
+        
+            <form method="post" id= "formID"> 
+                {% csrf_token %}
+                <input type="hidden" name="hidden_nexturl" id="hidfrdt" value="{{broker_list_dict.next}}">
+                <button type="submit" name='mybtn1'>Next</button>
+            </form>
+        {% endif %}
+        <br>
+        {% if broker_list_dict.previous %} 
+            <form method="post" id= "formID"> 
+                {% csrf_token %}
+                <input type="hidden" name="hidden_nexturl" id="hidfrdt" value="{{broker_list_dict.previous}}">
+                <button type="submit" name='mybtn1'>Previous</button>
+            </form>
+        {% endif %}
+
+    {% endif %}    
+
+      
+
+</body>
+
+<script>
+
+
+</script>
+
+
+
+
+
+</html>
