@@ -72,9 +72,9 @@ Run django project
   python manage.py runserver
 ```
 
-![App Screenshot 1](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Device List](https://raw.githubusercontent.com/koksalkapucuoglu/django-mqtt-app/master/app_screenshots/device_list.PNG?token=GHSAT0AAAAAABM4JJZJNXWNDJS7SSP2HC7IYSEDHLQ)
 
-![App Screenshot 2](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Broker List](https://raw.githubusercontent.com/koksalkapucuoglu/django-mqtt-app/master/app_screenshots/broker_list.PNG?token=GHSAT0AAAAAABM4JJZI7EGJFO54CUK7PFEKYSEDHJQ)
 
 ## Add New Record Mqtt Device 
 
@@ -120,7 +120,7 @@ Run publish_payload2django script
   python publish_payload2django.py
 ```
 
-![App Screenshot 3](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Publist Payload](https://raw.githubusercontent.com/koksalkapucuoglu/django-mqtt-app/master/app_screenshots/publish_mqtt_payload.PNG?token=GHSAT0AAAAAABM4JJZJ5XY6B47WWRQL3ESOYSEDHOQ)
 
 
 
@@ -129,3 +129,4 @@ Run publish_payload2django script
 1. Go to [http://localhost:8000/api/swagger](http://localhost:8000/api/swagger) to see Swagger documentation for API endpoints.
 2. Run the APIs by clicking the "Try it now" button on the Swagger page.
 
+![App Swagger](https://raw.githubusercontent.com/koksalkapucuoglu/django-mqtt-app/master/app_screenshots/api_swagger.PNG?token=GHSAT0AAAAAABM4JJZJH7F4KLGSI5LBSZNUYSEDG5Q)
